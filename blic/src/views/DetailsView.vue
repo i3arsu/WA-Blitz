@@ -2,10 +2,11 @@
   <div>
     <ul>
       <li>Ime autora: {{book.authors}}</li>
+      <li>ISBN: {{book.isbn}}</li>
       <li>Broj Stranica: {{book.numberOfPages}}</li>
       <li>Zemlja podrjetla: {{book.country}}</li>
       <li>Izdano: {{book. released}}</li>
-      <li>Likovi: {{(book.characters).length}}</li>
+      <li>Likovi: {{likovi.length}}</li>
     </ul> 
      <button onclick="location.href='/'">
         Back
@@ -24,7 +25,8 @@ export default {
 
   data(){
     return{
-      book:[]
+      book:[],
+      likovi:0
     }
   },
   
@@ -32,6 +34,7 @@ export default {
     let get_request = await fetch(this.url)
     let response = await get_request.json() 
     this.book = response
+    this.likovi = response.characters
   }
 
 }
