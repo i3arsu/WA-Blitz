@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <ol>
-      <li v-for="book in books" :key="book.isbn">
+      <li v-for="book in books" :key="book.url">
         <!-- <router-link :to="'/commit_details/' + commit.sha">{{ commit.sha }}</router-link> -->
-        <router-link :to="{name:'details', params: { isbn: book.isbn}}">{{ book.name }}</router-link>
+        <router-link :to="{name:'details', params: { isbn: book.isbn, url: book.url}}">{{ book.isbn }}</router-link>
       </li>
     </ol>
     

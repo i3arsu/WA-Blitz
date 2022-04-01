@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h1>{{book.name}}</h1>
     <ul>
       <li>Ime autora: {{book.authors}}</li>
-      <li>Broj Stranica: {{book.book.numberOfPages}}</li>
-      <li>Zemlja podrjetla: {{book.book.country}}</li>
-      <li>Izdano: {{book.book.released}}</li>
-    </ul>
+      <li>Broj Stranica: {{book.numberOfPages}}</li>
+      <li>Zemlja podrjetla: {{book.country}}</li>
+      <li>Izdano: {{book. released}}</li>
+      <li>Likovi: {{(book.characters).length}}</li>
+    </ul> 
+
   </div>
 </template>
 
@@ -14,7 +15,8 @@
 export default {
   name: 'DetailsView',
   props: {
-    isbn: String
+    isbn: String,
+    url: String
   },
 
   data(){
@@ -24,8 +26,7 @@ export default {
   },
   
   created: async function() {
-    
-    let get_request = await fetch("https://www.anapioficeandfire.com/api/books")
+    let get_request = await fetch(this.url)
     let response = await get_request.json() 
     this.book = response
   }
