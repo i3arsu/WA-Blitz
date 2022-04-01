@@ -7,6 +7,9 @@
       <li>Izdano: {{book. released}}</li>
       <li>Likovi: {{(book.characters).length}}</li>
     </ul> 
+     <button onclick="location.href='/'">
+        Back
+      </button>
 
   </div>
 </template>
